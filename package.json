@@ -1,0 +1,48 @@
+{
+  "name": "template2function",
+  "productName": "template2function",
+  "version": "0.0.20160405",
+  "description": "helper script to manage npm packages",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/leungwensen/template2function",
+  "keywords": [
+    "template precompile",
+    "template engine",
+    "template2function"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leungwensen/template2function.git"
+  },
+  "author": {
+    "name": "绝云",
+    "email": "leungwensen@gmail.com",
+    "url": "leungwensen.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "zero-encoding": "^0.0.20151202",
+    "zero-fmt": "^0.0.20151202",
+    "zero-lang": "^0.0.20151202",
+    "zero-text": "^0.0.20160127"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.3.5",
+    "gulp-ztpl-compiler": "^0.0.20160310",
+    "require-dir": "^0.3.0"
+  },
+  "bin": {
+    "template2function": "./bin/cli.js"
+  },
+  "scripts": {},
+  "files": [
+    "bin",
+    "lib",
+    "package.json"
+  ]
+}
