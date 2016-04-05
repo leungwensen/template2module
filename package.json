@@ -9,7 +9,9 @@
   "keywords": [
     "template precompile",
     "template engine",
-    "template2function"
+    "template2function",
+    "zero template",
+    "underscore template"
   ],
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
   },
   "dependencies": {
     "commander": "^2.9.0",
+    "homunculus": "^0.10.4",
+    "js-beautify": "^1.6.2",
     "zero-encoding": "^0.0.20151202",
     "zero-fmt": "^0.0.20151202",
     "zero-lang": "^0.0.20151202",
