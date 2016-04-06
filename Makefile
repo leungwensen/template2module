@@ -22,5 +22,5 @@ test:
 	#jasmine
 publish:
 	npm publish
-	cnpm sync template2function
+	cnpm sync template2module
 
