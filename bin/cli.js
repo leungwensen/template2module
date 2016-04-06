@@ -6,8 +6,7 @@ var fs = require('fs');
 var sprintf = require('zero-fmt/sprintf');
 var zeroTemplate = require('zero-text/template');
 
-var engines = require('../lib/engines');
-var modularize = require('../lib/modularize');
+var engines = require('../lib').engines;
 
 var pkg = require(path.resolve(__dirname, '../package.json'));
 
@@ -32,11 +31,12 @@ commander
             if (err) {
                 throw err;
             } else {
-                var resultFunc = engines[engine](data);
-                console.log(modularize({
-                    contents: resultFunc,
-                    name: path.basename(source, path.extname(source)),
-                }, moduleFormat));
+                var resultFunc = engines[engine].render(
+                    data, // origin template string
+                    path.basename(source, path.extname(source)), // module name
+                    moduleFormat // module format
+                );
+                console.log(resultFunc);
             }
         });
     });
