@@ -1,21 +1,21 @@
 {
-  "name": "template2function",
-  "productName": "template2function",
-  "version": "0.0.20160405",
+  "name": "template2module",
+  "productName": "template2module",
+  "version": "0.0.20160406",
   "description": "helper script to manage npm packages",
   "license": "MIT",
   "main": "lib/index.js",
-  "homepage": "https://github.com/leungwensen/template2function",
+  "homepage": "https://github.com/leungwensen/template2module",
   "keywords": [
     "template precompile",
     "template engine",
-    "template2function",
+    "template2module",
     "zero template",
     "underscore template"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/leungwensen/template2function.git"
+    "url": "git://github.com/leungwensen/template2module.git"
   },
   "author": {
     "name": "绝云",
@@ -29,10 +29,13 @@
     "commander": "^2.9.0",
     "homunculus": "^0.10.4",
     "js-beautify": "^1.6.2",
+    "underscore": "^1.8.3",
     "zero-encoding": "^0.0.20151202",
+    "zero-events": "0.0.20151202",
     "zero-fmt": "^0.0.20151202",
     "zero-lang": "^0.0.20151202",
-    "zero-text": "^0.0.20160127"
+    "zero-oop": "0.0.20151202",
+    "zero-text": "0.0.20160406"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -41,7 +44,7 @@
     "require-dir": "^0.3.0"
   },
   "bin": {
-    "template2function": "./bin/cli.js"
+    "template2module": "./bin/cli.js"
   },
   "scripts": {},
   "files": [
