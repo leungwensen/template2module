@@ -6,9 +6,9 @@ precompile templates into modules, built for high performance
 
 ```shell
 # global
-$ npm install template2function -g
+$ npm install template2module -g
 # local
-$ npm install template2function --save-dev
+$ npm install template2module --save-dev
 ```
 
 ## usage
