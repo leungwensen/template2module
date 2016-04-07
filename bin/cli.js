@@ -38,6 +38,7 @@ commander
                     source // pathname
                 );
                 console.log(resultFunc);
+                process.exit(0); // animaはおかしいだ
             }
         });
     });
