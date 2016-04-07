@@ -34,7 +34,8 @@ commander
                 var resultFunc = engines[engine].render(
                     data, // origin template string
                     path.basename(source, path.extname(source)), // module name
-                    moduleFormat // module format
+                    moduleFormat, // module format
+                    source // pathname
                 );
                 console.log(resultFunc);
             }

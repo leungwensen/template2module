@@ -30,9 +30,10 @@ var tpl2mod = require('template2module');
 // render a zero template into a module
 var zeroEngine = tpl2mod.engines.zero;
 zeroEngine.render(
-    templateStr, /* template string */
-    moduleName,  /* name of the target module */
-    'umd'        /* can be one of [amd|commonjs|esnext|umd] or a template render function*/
+    templateStr,  /* template string */
+    moduleName,   /* name of the target module */
+    moduleFormat, /* can be one of [amd|commonjs|esnext|umd] or a template render function */
+    filePath,     /* engines that support `include` functionality might need it */
 );
 ```
 
@@ -78,7 +79,7 @@ var myAwesomeEngine = new Engine({
     
     render: function(str, moduleName) {
         // target moduleFormat is 'commonjs' only
-        var resultStr = this.modularize(str, moduleName, 'commonjs');
+        var resultStr = Engine.prototype.render.call(this, str, moduleName, 'commonjs');
         // add extra dependencies in the rendered function
         return [
             'var lang = require("zero-lang");',
@@ -97,6 +98,7 @@ if you are using one of the supported engines, it would be much easier:
 ```javascript
 var tpl2mod = require('template2module');
 var zeroEngine = tpl2mod.engines.zero;
+var Engine = tpl2mod.Engine;
 
 zeroEngine.outerScopeVars = {
     _e: true,
@@ -108,7 +110,7 @@ zeroEngine.outerScopeVars = {
 
 zeroEngine.render = function(str, moduleName) {
     // target moduleFormat is 'commonjs' only
-    var resultStr = this.modularize(str, moduleName, 'commonjs');
+    var resultStr = Engine.prototype.render.call(this, str, moduleName, 'commonjs');
     // add extra dependencies in the rendered function
     return [
         'var lang = require("zero-lang");',
@@ -123,13 +125,15 @@ zeroEngine.render(templateStr, moduleName);
 
 ## supported template engines
 
-- [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js) **the default template engine**
-- [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
-- [x] underscore: [Underscore templates](http://underscorejs.org/#template)
+- [x] anima: [animajs/template](http://gitlab.alibaba-inc.com/animajs/template)
 - [x] micro: [Microtemplating](http://ejohn.org/blog/javascript-micro-templating)
+- [x] underscore: [Underscore templates](http://underscorejs.org/#template)
+- [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
+- [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js) **the default template engine**
 - [ ] dot: [doT.js](https://github.com/olado/doT)
 - [ ] ejs: [EJS](https://github.com/tj/ejs)
-- [ ] anima: [animajs/template](http://gitlab.alibaba-inc.com/animajs/template)
+
+and **defining your own engine is SUPER EASY**
 
 ## supported modular formats
 
