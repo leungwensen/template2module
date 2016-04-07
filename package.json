@@ -1,7 +1,7 @@
 {
   "name": "template2module",
   "productName": "template2module",
-  "version": "0.0.20160406",
+  "version": "0.0.20160407",
   "description": "helper script to manage npm packages",
   "license": "MIT",
   "main": "lib/index.js",
@@ -28,6 +28,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "dot": "^1.0.3",
+    "ejs": "^2.4.1",
     "homunculus": "^0.10.4",
     "js-beautify": "^1.6.2",
     "primer-template": "^1.1.1",

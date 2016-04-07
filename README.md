@@ -17,8 +17,9 @@ $ npm install template2module --save-dev
 
 ```shell
 $ template2module \
-     --engine(-e) [zero/underscore/ejs/dot/micro/anima] \
-     --format(-f) [amd/commonjs/esnext/umd] \
+     --engine(-e) <[zero/underscore/ejs/dot/micro/anima]> \
+     --format(-f) <[amd/commonjs/esnext/umd]> \
+     --config(-c) <$path/to/config/file.js(.json)> \
      $path/to/source/file
 ```
 
@@ -34,6 +35,7 @@ zeroEngine.render(
     moduleName,   /* name of the target module */
     moduleFormat, /* can be one of [amd|commonjs|esnext|umd] or a template render function */
     filePath,     /* engines that support `include` functionality might need it */
+    config        /* configuration for the engine */
 );
 ```
 
@@ -71,10 +73,12 @@ var myAwesomeEngine = new Engine({
     },
     
     parse: function (str) {
-        return sprintf(
-            "var _s = '%s'; return _s;",
-            templateEngine.parse(str)
-        );
+        return {
+            functionBody: sprintf(
+                "var _s = '%s'; return _s;",
+                templateEngine.parse(str)
+            )
+        };
     },
     
     render: function(str, moduleName) {
@@ -126,12 +130,11 @@ zeroEngine.render(templateStr, moduleName);
 ## supported template engines
 
 - [x] anima: [animajs/template](http://gitlab.alibaba-inc.com/animajs/template)
+- [x] dot: [doT.js](https://github.com/olado/doT)
 - [x] micro: [Microtemplating](http://ejohn.org/blog/javascript-micro-templating)
 - [x] underscore: [Underscore templates](http://underscorejs.org/#template)
 - [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
-- [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js) **the default template engine**
-- [x] dot: [doT.js](https://github.com/olado/doT)
-- [ ] ejs: [EJS](https://github.com/tj/ejs)
+- [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js)
 
 and **defining your own engine is SUPER EASY**
 
