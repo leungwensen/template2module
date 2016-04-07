@@ -15,6 +15,7 @@ commander
     .description('precompile templates into functions, built for high performance')
     .option('-e, --engine <engine>', 'choose a template engine, default value is "zero"')
     .option('-f, --format <format>', 'the result module format, default is "umd"')
+    .option('-c, --config <config>', 'config file (js or json file)')
     .arguments('<source>')
     .action(function (source) {
         if (!source) {
@@ -22,8 +23,12 @@ commander
         }
         var engine = commander.engine || 'zero';
         var moduleFormat = commander.format || 'umd';
+        var config = null;
         if (!engines[engine]) {
             throw new Error(sprintf('Engine %s is not available!', engine));
+        }
+        if (commander.config) {
+            config = require(path.resolve(process.cwd(), commander.config));
         }
         fs.readFile(source, {
             encoding: 'utf8'
@@ -35,7 +40,8 @@ commander
                     data, // origin template string
                     path.basename(source, path.extname(source)), // module name
                     moduleFormat, // module format
-                    source // pathname
+                    source, // pathname
+                    config // config
                 );
                 console.log(resultFunc);
                 process.exit(0); // animaはおかしいだ

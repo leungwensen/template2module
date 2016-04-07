@@ -130,7 +130,7 @@ zeroEngine.render(templateStr, moduleName);
 - [x] underscore: [Underscore templates](http://underscorejs.org/#template)
 - [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
 - [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js) **the default template engine**
-- [ ] dot: [doT.js](https://github.com/olado/doT)
+- [x] dot: [doT.js](https://github.com/olado/doT)
 - [ ] ejs: [EJS](https://github.com/tj/ejs)
 
 and **defining your own engine is SUPER EASY**
