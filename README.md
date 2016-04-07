@@ -126,9 +126,9 @@ zeroEngine.render(templateStr, moduleName);
 - [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js) **the default template engine**
 - [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
 - [x] underscore: [Underscore templates](http://underscorejs.org/#template)
+- [x] micro: [Microtemplating](http://ejohn.org/blog/javascript-micro-templating)
 - [ ] dot: [doT.js](https://github.com/olado/doT)
 - [ ] ejs: [EJS](https://github.com/tj/ejs)
-- [ ] micro: [Microtemplating](http://ejohn.org/blog/javascript-micro-templating)
 - [ ] anima: [animajs/template](http://gitlab.alibaba-inc.com/animajs/template)
 
 ## supported modular formats
