@@ -1,0 +1,5 @@
+# anima template engine test cases
+
+## include
+
+<%include("./include.atpl")%>
