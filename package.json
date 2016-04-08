@@ -2,7 +2,7 @@
   "name": "template2module",
   "productName": "template2module",
   "version": "0.0.20160408",
-  "description": "helper script to manage npm packages",
+  "description": "precompile templates into modules, built for high performance",
   "license": "MIT",
   "main": "lib/index.js",
   "homepage": "https://github.com/leungwensen/template2module",
