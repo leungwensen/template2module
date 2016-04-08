@@ -2,6 +2,7 @@
 
 precompile templates into modules, built for high performance
 
+
 ## install
 
 ```shell
@@ -10,6 +11,7 @@ $ npm install template2module -g
 # local
 $ npm install template2module --save-dev
 ```
+
 
 ## usage
 
@@ -122,6 +124,29 @@ zeroEngine.render = function(str, moduleName) {
 zeroEngine.render(templateStr, moduleName);
 ```
 
+
+## design
+
+### module structure
+
+```javascript
+// wrapping in amd/commonjs/esnext/umd format
+
+    function outerFunction(data, helper) {
+        // initializing
+
+        return (function innerFunction(arg1, arg2, .../* formal arguments */) {
+            // inner function body
+
+        })(data.arg1, data.arg2, .../* real arguments */);
+    }
+```
+
+### transform flow
+
+![transform flow](./assets/transform-flow.png)
+
+
 ## supported template engines
 
 - [x] anima: [animajs/template](http://gitlab.alibaba-inc.com/animajs/template)
@@ -134,12 +159,14 @@ zeroEngine.render(templateStr, moduleName);
 
 and **defining your own engine is SUPER EASY**
 
+
 ## supported modular formats
 
 - [x] [amd](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)
 - [x] [commonjs](http://www.commonjs.org/)
 - [x] [esnext](https://github.com/tc39/ecma262)
 - [x] [umd](https://github.com/umdjs/umd)
+
 
 ## what's next
 
