@@ -1,0 +1,10 @@
+function (data) {
+    data = data || {};
+    function _p(s) {
+        return (s === null || s === undefined) ? '' : s;
+    };
+
+    return (function ({%= data.formalArguments %}) {
+        {%= data.functionBody %}
+    })({%= data.realArguments %});
+}

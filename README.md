@@ -17,7 +17,7 @@ $ npm install template2module --save-dev
 
 ```shell
 $ template2module \
-     --engine(-e) <[zero/underscore/ejs/dot/micro/anima]> \
+     --engine(-e) <[zero/underscore/dot/micro/anima]> \
      --format(-f) <[amd/commonjs/esnext/umd]> \
      --config(-c) <$path/to/config/file.js(.json)> \
      $path/to/source/file
@@ -41,7 +41,7 @@ zeroEngine.render(
 
 ### customize
 
-in case you need to render your template into a module that is in `commonjs` format, and it has got some extra dependencies(`zero-lang`, `zero-text`, etc.), and you do not want to parse the `helper` object every time you use the module.
+in case you need to render your template into a module that is in `commonjs` format, and it has got some extra dependencies(`zero-lang`, `zero-text`, etc.), and you do not want to pass the `helper` object as one of the arguments every time you use the module.
 
 ```javascript
 var tpl2mod = require('template2module');
@@ -71,7 +71,7 @@ var myAwesomeEngine = new Engine({
             '}'
         ].join('\n');
     },
-    
+
     parse: function (str) {
         return {
             functionBody: sprintf(
@@ -80,7 +80,7 @@ var myAwesomeEngine = new Engine({
             )
         };
     },
-    
+
     render: function(str, moduleName) {
         // target moduleFormat is 'commonjs' only
         var resultStr = Engine.prototype.render.call(this, str, moduleName, 'commonjs');
@@ -97,24 +97,19 @@ var myAwesomeEngine = new Engine({
 myAwesomeEngine.render(templateStr, moduleName);
 ```
 
-if you are using one of the supported engines, it would be much easier:
+If you are using one of the supported engines, it would be much easier:
 
 ```javascript
 var tpl2mod = require('template2module');
 var zeroEngine = tpl2mod.engines.zero;
 var Engine = tpl2mod.Engine;
 
-zeroEngine.outerScopeVars = {
-    _e: true,
-    _p: true,
-    _s: true,
-    helper: true,
-    translate: true // your extra helper function
-};
+zeroEngine.outerScopeVars.translate = true; // your extra helper function
 
 zeroEngine.render = function(str, moduleName) {
     // target moduleFormat is 'commonjs' only
     var resultStr = Engine.prototype.render.call(this, str, moduleName, 'commonjs');
+
     // add extra dependencies in the rendered function
     return [
         'var lang = require("zero-lang");',
@@ -135,6 +130,7 @@ zeroEngine.render(templateStr, moduleName);
 - [x] underscore: [Underscore templates](http://underscorejs.org/#template)
 - [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
 - [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js)
+- [ ] nano: [trix/nano](https://github.com/trix/nano)
 
 and **defining your own engine is SUPER EASY**
 
@@ -144,4 +140,12 @@ and **defining your own engine is SUPER EASY**
 - [x] [commonjs](http://www.commonjs.org/)
 - [x] [esnext](https://github.com/tc39/ecma262)
 - [x] [umd](https://github.com/umdjs/umd)
+
+## what's next
+
+- [ ] use a move powerful AST analyzer ([substack/node-falafel](https://github.com/substack/node-falafel), etc.), to support more engines
+- [ ] support more engines(pug, nunjucks, handlebar, jsrender, mustache, etc.)
+- [ ] optimize module after rendered ([google/closure-compiler](https://github.com/google/closure-compiler), etc.)
+- [ ] a friendly API interface
+- [ ] toolkits: gulp task, webpack loader, grunt task, etc.
 
