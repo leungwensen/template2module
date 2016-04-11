@@ -3,6 +3,11 @@
 precompile templates into modules, built for high performance
 
 
+## performance: [template2module vs underscore(jsperf)](http://jsperf.com/template2module-vs-underscore-templating)
+
+![template2module-vs-underscore](./assets/jsperf-template2module-vs-underscore.png)
+
+
 ## install
 
 ```shell
