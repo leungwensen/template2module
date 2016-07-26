@@ -1,7 +1,7 @@
 {
   "name": "template2module",
   "productName": "template2module",
-  "version": "0.0.20160409",
+  "version": "0.1.0",
   "description": "precompile templates into modules, built for high performance",
   "license": "MIT",
   "main": "lib/index.js",
@@ -31,7 +31,7 @@
     "ejs": "^2.4.1",
     "homunculus": "^0.10.4",
     "js-beautify": "^1.6.2",
-    "primer-template": "^1.1.1",
+    "primer-template": "^1.1.2",
     "underscore": "^1.8.3",
     "zero-encoding": "^0.0.20151202",
     "zero-events": "0.0.20151202",
