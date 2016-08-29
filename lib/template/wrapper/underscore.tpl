@@ -9,8 +9,8 @@ function (data, helper) {
         __p += __j.call(arguments, '');
     };
 
-    return (function ({%= data.formalArguments %}) {
-        {%= data.functionBody %}
-    })({%= data.realArguments %});
+    return (function (<%= formalArguments %>) {
+        <%= functionBody %>
+    })(<%= realArguments %>);
 }
 

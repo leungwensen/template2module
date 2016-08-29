@@ -2,4 +2,6 @@
 
 ## include
 
+<% var hello = world; %>
+
 <%include("./include.atpl")%>

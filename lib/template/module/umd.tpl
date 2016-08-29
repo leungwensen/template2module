@@ -4,9 +4,9 @@
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {
-    root['{%# data.name %}'] = factory();
+    root['<%= name %>'] = factory();
   }
 }(this, function() {
   'use strict';
-  return {%# data.contents %};
+  return <%= contents %>;
 }));

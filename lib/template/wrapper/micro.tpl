@@ -7,8 +7,8 @@ function (data, helper) {
         p.push.apply(p,arguments);
     };
 
-    return (function ({%= data.formalArguments %}) {
-        {%= data.functionBody %}
-    })({%= data.realArguments %});
+    return (function (<%= formalArguments %>) {
+        <%= functionBody %>
+    })(<%= realArguments %>);
 }
 

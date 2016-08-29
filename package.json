@@ -33,12 +33,8 @@
     "js-beautify": "^1.6.2",
     "primer-template": "^1.1.2",
     "underscore": "^1.8.3",
-    "zero-encoding": "^0.0.20151202",
-    "zero-events": "0.0.20151202",
-    "zero-fmt": "^0.0.20151202",
-    "zero-lang": "^0.0.20151202",
-    "zero-oop": "0.0.20151202",
-    "zero-text": "0.0.20160406"
+    "zero-declare": "^0.1.2",
+    "zero-lang": "^0.1.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

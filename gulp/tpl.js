@@ -1,12 +1,13 @@
 var gulp = require('gulp');
-var compileTemplate = require('gulp-ztpl-compiler');
 var path = require('path');
 
-gulp.task('ztpl', function () {
+// TODO tobe modified
+
+gulp.task('tpl', function () {
     return gulp.src([
-            path.resolve(__dirname, '../lib/template/**/*.html'),
-            path.resolve(__dirname, '../lib/template/**/*.ztpl')
-        ])
+        path.resolve(__dirname, '../lib/template/**/*.html'),
+        path.resolve(__dirname, '../lib/template/**/*.ztpl')
+    ])
         .pipe(compileTemplate({
             template: 'commonjs'
         }))

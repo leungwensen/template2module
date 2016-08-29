@@ -1,8 +1,0 @@
-function ({%= data.varname %}) {
-    {%= data.varname %} = {%= data.varname %} || {};
-
-    return (function ({%= data.formalArguments %}) {
-        {%= data.functionBody %}
-    })({%= data.realArguments %});
-}
-

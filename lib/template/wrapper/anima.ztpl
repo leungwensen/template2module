@@ -1,9 +1,0 @@
-function (data, helper) {
-    data = data || {};
-    helper = helper || {};
-
-    return (function ({%= data.formalArguments %}) {
-        {%= data.functionBody %}
-    })({%= data.realArguments %});
-}
-

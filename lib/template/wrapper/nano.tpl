@@ -4,7 +4,7 @@ function (data) {
         return (s === null || s === undefined) ? '' : s;
     };
 
-    return (function ({%= data.formalArguments %}) {
-        {%= data.functionBody %}
-    })({%= data.realArguments %});
+    return (function (<%= formalArguments %>) {
+        <%= functionBody %>
+    })(<%= realArguments %>);
 }

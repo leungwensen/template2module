@@ -3,11 +3,7 @@
 var commander = require('commander');
 var path = require('path');
 var fs = require('fs');
-var sprintf = require('zero-fmt/sprintf');
-var zeroTemplate = require('zero-text/template');
-
 var engines = require('../lib').engines;
-
 var pkg = require(path.resolve(__dirname, '../package.json'));
 
 commander
@@ -25,7 +21,7 @@ commander
         var moduleFormat = commander.format || 'umd';
         var config = null;
         if (!engines[engine]) {
-            throw new Error(sprintf('Engine %s is not available!', engine));
+            throw new Error('Engine is not available: ' + engine);
         }
         if (commander.config) {
             config = require(path.resolve(process.cwd(), commander.config));
@@ -54,4 +50,3 @@ commander.parse(process.argv);
 if (process.argv.length === 2) {
     commander.outputHelp();
 }
-
