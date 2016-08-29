@@ -1,7 +1,7 @@
 {
   "name": "template2module",
   "productName": "template2module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "precompile templates into modules, built for high performance",
   "license": "MIT",
   "main": "lib/index.js",
