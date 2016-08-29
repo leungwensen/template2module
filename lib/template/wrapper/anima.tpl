@@ -6,4 +6,3 @@ function (data, helper) {
         <%= functionBody %>
     })(<%= realArguments %>);
 }
-

@@ -5,4 +5,3 @@ function (<%= varname %>) {
         <%= functionBody %>
     })(<%= realArguments %>);
 }
-
