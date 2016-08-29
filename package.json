@@ -38,9 +38,11 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
-    "gulp-ztpl-compiler": "^0.0.20160310",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "through2": "^2.0.1"
   },
   "bin": {
     "template2module": "./bin/cli.js"

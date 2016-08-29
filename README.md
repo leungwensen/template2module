@@ -24,7 +24,7 @@ $ npm install template2module --save-dev
 
 ```shell
 $ template2module \
-     --engine(-e) <[zero/underscore/dot/micro/anima]> \
+     --engine(-e) <[underscore/dot/micro/anima]> \
      --format(-f) <[amd/commonjs/esnext/umd]> \
      --config(-c) <$path/to/config/file.js(.json)> \
      $path/to/source/file
@@ -35,9 +35,9 @@ $ template2module \
 ```javascript
 var tpl2mod = require('template2module');
 
-// render a zero template into a module
-var zeroEngine = tpl2mod.engines.zero;
-zeroEngine.render(
+// render a underscore template into a module
+var underscoreEngine = tpl2mod.engines.underscore;
+underscoreEngine.render(
     templateStr,  /* template string */
     moduleName,   /* name of the target module */
     moduleFormat, /* can be one of [amd|commonjs|esnext|umd] or a template render function */
@@ -94,7 +94,7 @@ var myAwesomeEngine = new Engine({
         // add extra dependencies in the rendered function
         return [
             'var lang = require("zero-lang");',
-            'var i18n = require("zero-text/i18n");',
+            'var i18n = require("zero-locale");',
             'var translate = i18n.translate;',
             ''
         ].join('\n') + resultStr;
@@ -108,25 +108,25 @@ If you are using one of the supported engines, it would be much easier:
 
 ```javascript
 var tpl2mod = require('template2module');
-var zeroEngine = tpl2mod.engines.zero;
+var underscoreEngine = tpl2mod.engines.underscore;
 var Engine = tpl2mod.Engine;
 
-zeroEngine.outerScopeVars.translate = true; // your extra helper function
+underscoreEngine.outerScopeVars.translate = true; // your extra helper function
 
-zeroEngine.render = function(str, moduleName) {
+underscoreEngine.render = function(str, moduleName) {
     // target moduleFormat is 'commonjs' only
     var resultStr = Engine.prototype.render.call(this, str, moduleName, 'commonjs');
 
     // add extra dependencies in the rendered function
     return [
         'var lang = require("zero-lang");',
-        'var i18n = require("zero-text/i18n");',
+        'var i18n = require("zero-locale");',
         'var translate = i18n.translate;',
         ''
     ].join('\n') + resultStr;
 };
 
-zeroEngine.render(templateStr, moduleName);
+underscoreEngine.render(templateStr, moduleName);
 ```
 
 
@@ -159,8 +159,6 @@ zeroEngine.render(templateStr, moduleName);
 - [x] micro: [Microtemplating](http://ejohn.org/blog/javascript-micro-templating)
 - [x] nano: [trix/nano](https://github.com/trix/nano)
 - [x] underscore: [Underscore templates](http://underscorejs.org/#template)
-- [x] zero-old: [zero/template](http://gitlab.alibaba-inc.com/zeroui/zero/blob/master/src/zero/template.js)
-- [x] zero: [zero-text/template](https://github.com/zero/zero-text/blob/master/template.js)
 
 and **defining your own engine is SUPER EASY**
 
