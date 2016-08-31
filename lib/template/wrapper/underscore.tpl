@@ -14,7 +14,7 @@
         __p += __j.call(arguments, '');
     };<% if (__escaping) { %>
     var __e=function(s){
-        return String(s).replace(/[&<>"'\/]/g, function (s) {
+        return String(s).replace(/[&<>"'\/]/g, function (m) {
           return {
             "&": "&amp;",
             "<": "&lt;",
@@ -22,7 +22,7 @@
             '"': '&quot;',
             "'": '&#39;',
             "/": '&#x2F;'
-          }[s];
+          }[m];
         });
     };<% } %>
 
