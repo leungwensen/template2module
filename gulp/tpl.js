@@ -23,7 +23,7 @@ function renderTemplates() {
                 .replace(/>[\s|\r|\n]*</g, '><');
             var content = underscoreEngine.render(templateContent, file.path, 'commonjs')
                 .replace(', helper', '')
-                .replace('helper = helper || {};', '');
+                .replace('helper = helper || {};\n', '');
             file.contents = new Buffer('const lang = require(\'zero-lang\');\n' + content);
         } catch (err) {
             this.emit('error', new gutil.PluginError('template2module', err.toString()));
