@@ -11,7 +11,7 @@ all:
 
 # tasks
 preinstall:
-	npm  install -g cnpm --registry=http://registry.npm.taobao.org
+	npm  install -g cnpm --registry=https://registry.npmmirror.com
 	cnpm install -g webpack
 	cnpm install -g jasmine
 install:
